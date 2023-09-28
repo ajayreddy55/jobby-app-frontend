@@ -1,0 +1,270 @@
+.job-details-main-container {
+  background-color: #000000;
+  padding: 18px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.job-details-inner-container {
+  width: 97%;
+  display: flex;
+  flex-direction: column;
+}
+
+.job-details-card {
+  background-color: #272727;
+  border-radius: 14px;
+  padding: 25px;
+  width: 100%;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+
+.job-details-card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.job-details-website-logo {
+  width: 65px;
+  margin-right: 7px;
+}
+
+.job-details-title {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.job-details-star-icon {
+  height: 18px;
+  width: 18px;
+  margin-right: 3px;
+  color: #fbbf24;
+}
+
+.job-details-rating {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 2px;
+  margin-left: 3px;
+}
+
+.job-details-location-icon {
+  width: 22px;
+  height: 22px;
+  color: #ffffff;
+  margin-right: 3px;
+}
+
+.job-details-location-text {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+  margin-bottom: 2px;
+  margin-left: 3px;
+}
+
+.job-details-package-text {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffffff;
+  margin-left: 2px;
+  margin-bottom: 5px;
+  margin-top: 8px;
+}
+
+.job-details-applied-button {
+  background-color: #4f46e5;
+  border: none;
+  border-radius: 9px;
+  width: 110px;
+  height: 42px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 17px;
+  margin-top: 14px;
+  margin-bottom: 14px;
+  cursor: pointer;
+  outline: none;
+}
+
+.job-details-applied-button:focus {
+  outline: none;
+}
+
+.job-details-hr-line {
+  width: 100%;
+  border: 2px solid #7e858e;
+  border-radius: 10px;
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+.job-details-description-heading {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-right: 2px;
+}
+
+.job-details-visit-anchor {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #6366f1;
+  margin-left: 2px;
+}
+
+.job-details-visit-arrow {
+  height: 16px;
+  width: 16px;
+  margin-left: 6px;
+  margin-bottom: 5px;
+}
+
+.job-details-description {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.job-details-skills-heading {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-top: 16px;
+}
+
+.job-details-skills-list-container {
+  padding-left: 0px;
+}
+
+.jobs-details-loader-container {
+  width: 98%;
+  padding: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 11px;
+  margin-bottom: 11px;
+}
+
+.jobs-details-failure-container {
+  width: 98%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 11px;
+  margin-bottom: 11px;
+  text-align: center;
+  padding: 11px;
+}
+
+.jobs-details-failure-image {
+  width: 65%;
+  max-width: 320px;
+  min-width: 90px;
+  margin-top: 10px;
+  margin-bottom: 16px;
+}
+
+.job-details-failure-heading {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 36px;
+  text-align: center;
+  color: #ffffff;
+  font-weight: 600;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.job-details-failure-description {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 20px;
+  text-align: center;
+  color: #ffffff;
+  font-weight: 400;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.failure-job-details-retry-button {
+  background-color: #6366f1;
+  border: none;
+  border-radius: 9px;
+  height: 42px;
+  width: 110px;
+  cursor: pointer;
+  outline: none;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 17px;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.failure-job-details-retry-button:focus {
+  outline: none;
+}
+
+.jobs-details-life-at-company-heading {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-right: 2px;
+  margin-top: 16px;
+}
+
+.job-details-life-at-company-des {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.job-details-life-company-image {
+  width: 100%;
+  height: 250px;
+  border-radius: 10px;
+}

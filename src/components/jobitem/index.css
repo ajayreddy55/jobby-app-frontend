@@ -10,6 +10,7 @@
   min-height: 100px;
   margin-top: 11px;
   margin-bottom: 11px;
+  overflow-x: auto;
 }
 
 .jobs-link-item-container:hover {
@@ -79,7 +80,8 @@
   font-weight: 500;
   color: #ffffff;
   margin-left: 2px;
-  margin-bottom: 2px;
+  margin-bottom: 5px;
+  margin-top: 8px;
 }
 
 .jobs-page-item-hr-line {

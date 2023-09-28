@@ -137,6 +137,26 @@ const JobsPage = () => {
     }
   };
 
+  const checkboxSelectedFun = (id) => {
+    const isCheckedIdIncludes = selectedEmpolymentTypes.includes(id);
+    if (!isCheckedIdIncludes) {
+      setSelectedEmploymentTypes((prevState) => [...prevState, id]);
+    }
+  };
+
+  const checkboxUnselectedFun = (id) => {
+    const isUnCheckedIdIncludes = selectedEmpolymentTypes.includes(id);
+    if (isUnCheckedIdIncludes) {
+      setSelectedEmploymentTypes((prevState) =>
+        prevState.filter((eachId) => eachId !== id)
+      );
+    }
+  };
+
+  const salaryRangeItemSelectedFun = (id) => {
+    setSelectedMinimumPackage(id);
+  };
+
   const changeSearchInput = (event) => {
     setJobsSearchInput(event.target.value);
   };
@@ -235,6 +255,67 @@ const JobsPage = () => {
     }
   };
 
+  const renderProfileLoaderView = () => {
+    return (
+      <div className="profile-jobs-loader-view-container">
+        <Watch
+          height="60"
+          width="60"
+          radius="48"
+          color="#ffffff"
+          ariaLabel="watch-loading"
+          wrapperStyle={{}}
+          wrapperClassName=""
+          visible={true}
+        />
+      </div>
+    );
+  };
+
+  const renderProfileSuccessView = () => {
+    return (
+      <div className="jobs-page-profile-card mb-2">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/6915/6915987.png"
+          alt="profile"
+          className="jobs-page-profile-icon"
+        />
+        <h3 className="jobs-page-profile-name">{profileDetailsObject.name}</h3>
+        <p className="jobs-page-role">Associate Software Developer</p>
+      </div>
+    );
+  };
+
+  const renderProfileFailureView = () => {
+    return (
+      <div className="profile-jobs-failure-view">
+        <button
+          className="profile-failure-view-button"
+          type="button"
+          onClick={getProfileDetails}
+        >
+          Retry
+        </button>
+      </div>
+    );
+  };
+
+  const displayingTheLoaderOrProfileView = () => {
+    switch (profileResponseStatus) {
+      case apiResponseConstants.inProgress:
+        return renderProfileLoaderView();
+
+      case apiResponseConstants.success:
+        return renderProfileSuccessView();
+
+      case apiResponseConstants.failure:
+        return renderProfileFailureView();
+
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="jobs-page-main-parent-container">
       <Header />
@@ -243,15 +324,7 @@ const JobsPage = () => {
           <div className="row">
             <div className="col-12 col-md-4 profile-jobs-page-filters-main-container">
               <div className="d-flex flex-column p-2 profile-jobs-page-filters-container">
-                <div className="jobs-page-profile-card mb-2">
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/6915/6915987.png"
-                    alt="profile"
-                    className="jobs-page-profile-icon"
-                  />
-                  <h3 className="jobs-page-profile-name">Ajay Reddy</h3>
-                  <p className="jobs-page-role">Associate Software Developer</p>
-                </div>
+                {displayingTheLoaderOrProfileView()}
                 <hr className="jobs-page-profile-hr-line" />
                 <div className="d-flex flex-column mt-1 mb-1">
                   <h3 className="type-of-employment-heading">
@@ -262,6 +335,8 @@ const JobsPage = () => {
                       <EmploymentTypeItem
                         key={eachType.id}
                         typeItem={eachType}
+                        checkboxSelectedFun={checkboxSelectedFun}
+                        checkboxUnselectedFun={checkboxUnselectedFun}
                       />
                     ))}
                   </ul>
@@ -274,11 +349,15 @@ const JobsPage = () => {
                       <SalaryRangeItem
                         key={eachPackage.id}
                         packageItem={eachPackage}
+                        salaryRangeItemSelectedFun={salaryRangeItemSelectedFun}
                       />
                     ))}
                   </ul>
                 </div>
               </div>
+            </div>
+            <div className="col-12 d-md-none">
+              <hr className="jobs-page-profile-hr-line-2" />
             </div>
             <div className="col-12 col-md-8">
               <div className="jobs-page-jobs-main-container p-2">

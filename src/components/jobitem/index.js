@@ -18,7 +18,7 @@ const JobListItem = (props) => {
   } = jobItem;
 
   return (
-    <Link className="jobs-link-item-container">
+    <Link className="jobs-link-item-container" to={`/jobs/${_id}`}>
       <li className="jobs-list-item-container">
         <div className="d-flex align-items-center mt-2 mb-2">
           <img
@@ -34,7 +34,7 @@ const JobListItem = (props) => {
             </div>
           </div>
         </div>
-        <div className="d-flex align-items-center justify-content-between mt-2 mb-2">
+        <div className="d-flex align-items-center justify-content-between flex-wrap mt-2 mb-2">
           <div className="d-flex align-items-center mr-1">
             <div className="d-flex align-items-center mr-2">
               <HiLocationMarker className="jobs-page-location-icon" />
