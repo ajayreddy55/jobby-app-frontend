@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { AiFillHome } from "react-icons/ai";
 import { BsFillBriefcaseFill } from "react-icons/bs";
 import { FiLogOut } from "react-icons/fi";
@@ -9,11 +9,17 @@ import "./index.css";
 
 const Header = () => {
   const navigate = useNavigate();
+  const locationJobs = useLocation();
 
   const logoutSession = () => {
     Cookies.remove("jobby_jwt_token");
     navigate("/login");
   };
+
+  const locationStyleColorHome =
+    locationJobs.pathname === "/" ? "active-nav-color" : "";
+  const locationStyleColorJobs =
+    locationJobs.pathname === "/jobs" ? "active-nav-color" : "";
 
   return (
     <nav className="header-jobby-nav">
@@ -28,27 +34,35 @@ const Header = () => {
         <div className="d-none d-md-block">
           <div className="d-flex align-items-center mr-1 ml-1">
             <Link to={"/"} className="link-items-text-nav mr-3">
-              <p className="navbar-items-text">Home</p>
+              <p className={`navbar-items-text ${locationStyleColorHome}`}>
+                Home
+              </p>
             </Link>
             <Link to={"/jobs"} className="link-items-text-nav ml-3">
-              <p className="navbar-items-text">Jobs</p>
+              <p className={`navbar-items-text ${locationStyleColorJobs}`}>
+                Jobs
+              </p>
             </Link>
           </div>
         </div>
         <div className="d-md-none">
           <div className="d-flex align-items-center mr-1 ml-1">
             <Link to={"/"} className="link-item-icon-nav mr-3">
-              <AiFillHome className="items-icon-nav" />
+              <AiFillHome
+                className={`items-icon-nav ${locationStyleColorHome}`}
+              />
             </Link>
             <Link to={"/jobs"} className="link-item-icon-nav mr-3 ml-1">
-              <BsFillBriefcaseFill className="items-icon-nav" />
+              <BsFillBriefcaseFill
+                className={`items-icon-nav ${locationStyleColorJobs}`}
+              />
             </Link>
             <button
               className="button-logout-icon-nav"
               type="button"
               onClick={logoutSession}
             >
-              <FiLogOut className="items-icon-nav" />
+              <FiLogOut className="items-icon-nav active-nav-color" />
             </button>
           </div>
         </div>

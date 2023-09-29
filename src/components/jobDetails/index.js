@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Cookies from "js-cookie";
 import { Watch } from "react-loader-spinner";
+import SimilarJobsCard from "../similarjobscard";
 
 const apiResponseConstants = {
   initial: "INITIAL",
@@ -26,6 +27,7 @@ const JobDetailsPage = () => {
   const [jobDetailsResStatus, setJobDetailsResStatus] = useState(
     apiResponseConstants.initial
   );
+  const [isApplied, setIsApplied] = useState(false);
 
   useEffect(() => {
     const jwtJobbyToken = Cookies.get("jobby_jwt_token");
@@ -38,7 +40,7 @@ const JobDetailsPage = () => {
   useEffect(() => {
     getJobDetails();
     //eslint-disable-next-line
-  }, []);
+  }, [id]);
 
   const getJobDetails = async () => {
     setJobDetailsResStatus(apiResponseConstants.inProgress);
@@ -63,10 +65,30 @@ const JobDetailsPage = () => {
     }
   };
 
+  const applyForJob = () => {
+    setIsApplied(!isApplied);
+  };
+
+  const displayApplyButton = () => {
+    if (isApplied) {
+      return <p className="job-details-applied-text">Applied</p>;
+    } else {
+      return (
+        <button
+          className="job-details-applied-button"
+          type="button"
+          onClick={applyForJob}
+        >
+          Apply
+        </button>
+      );
+    }
+  };
+
   const renderJobsDetailsView = () => {
     return (
       <div className="job-details-inner-container mt-3 mb-3">
-        <div className="job-details-card">
+        <div className="job-details-card mb-3">
           <div className="job-details-card-container">
             <div className="d-flex align-items-center mt-2 mb-2">
               <img
@@ -101,9 +123,7 @@ const JobDetailsPage = () => {
                 {jobDetails.packagePerAnnum}
               </p>
             </div>
-            <button className="job-details-applied-button" type="button">
-              Apply
-            </button>
+            {displayApplyButton()}
             <hr className="job-details-hr-line" />
             <div className="d-flex flex-column mt-3 mb-3">
               <div className="d-flex align-items-center justify-content-between mb-1">
@@ -151,6 +171,16 @@ const JobDetailsPage = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="container-fluid mt-4 mb-3">
+          <div className="row">
+            <h2 className="similar-jobs-heading col-12 p-0">Similar Jobs</h2>
+          </div>
+          <ul className="similar-jobs-list-container row mt-1">
+            {similarJobs.map((eachJob) => (
+              <SimilarJobsCard key={eachJob._id} similarJobDetails={eachJob} />
+            ))}
+          </ul>
         </div>
       </div>
     );

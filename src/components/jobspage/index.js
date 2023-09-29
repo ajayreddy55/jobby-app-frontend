@@ -369,6 +369,7 @@ const JobsPage = () => {
                     value={jobsSearchInput}
                     onChange={changeSearchInput}
                     onKeyDown={keyDownRequestData}
+                    name="searchbar"
                   />
                   <div className="search-bar-button-container">
                     <button
